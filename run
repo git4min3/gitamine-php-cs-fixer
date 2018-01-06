@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+BIN=php-cs-fixrt
+
+# The reading options part
+while [[ $# -gt 0 ]] && [[ ."$1" = .--* ]] ;
+do
+    opt="$1";
+    shift;              #expose next argument
+    case "$opt" in
+        "--" ) break 2;;
+        "--bin="* )
+           BIN="${opt#*=}";;
+   esac
+done
+
+FILES="$(gitamine f:c | grep -E "(\\.yaml$|\\.yml$)" | tr '\r\n' ' ')"
+
+for FILE in ${FILES}
+do
+     if eval "${BIN} fix ${FILE} --allow-risky yes"; then
+        continue
+     else
+        exit 1
+     fi
+done

@@ -18,6 +18,6 @@ if [ -e "${DIR}/hooks/${EVENT}.sh" ]
 then
     eval "${DIR}/hooks/${EVENT}.sh $*"
 else
-    echo "This plugin only works on [pre-commit, pre-push, post-checkout] hooks"
+    echo "This plugin only works on [pre-commit, pre-push] hooks"
     exit 1
 fi

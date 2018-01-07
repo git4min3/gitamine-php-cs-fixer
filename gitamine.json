@@ -1,4 +1,5 @@
 {
+  "name": "gitamine-php-cs-fixer",
   "author": "Javier González Cuadrado <xgc1986@gmail.com>",
   "plugin": "git4min3/gitamine-php-cs-fixer"
 }
